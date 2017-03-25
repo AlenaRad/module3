@@ -1,28 +1,25 @@
 package by.tamp.module3.hierarhy;
 
-import java.text.NumberFormat;
-import java.util.Locale;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
+@XmlRootElement(name = "car")
+@XmlType(propOrder = {"model","price", "fuelConsumption"})
 public class Car implements ICar {
+
+    public Car() {}
 
     private String model;
     private int price;
     private int fuelConsumption;
-    private double weight;
+    private int weight;
 
-    NumberFormat formatter = NumberFormat.getCurrencyInstance(Locale.US);
-
-    public Car(String model, int price, int fuelConsumption, double weight) {
+    public Car(String model, int price, int fuelConsumption, int weight) {
         this.model = model;
         this.price = price;
         this.fuelConsumption = fuelConsumption;
         this.weight = weight;
-    }
-
-    public Car(String model, int price, int fuelConsumption) {
-        this.model = model;
-        this.price = price;
-        this.fuelConsumption = fuelConsumption;
     }
 
     public String getModel(){
@@ -35,6 +32,29 @@ public class Car implements ICar {
 
     public int getFuelConsumption(){
         return fuelConsumption;
+    }
+
+    public double getWeight(){
+        return weight;
+    }
+
+    @XmlElement
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    @XmlElement
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    @XmlElement
+    public void setFuelConsumption(int fuelConsumption) {
+        this.fuelConsumption = fuelConsumption;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
     public String getInfo() {
@@ -52,13 +72,8 @@ public class Car implements ICar {
         System.out.println("Car is stopped");
     }
 
-//    @Override
-//    public String toString() {
-//        return this.getModel() + this.getPrice() + this.getFuelConsumption();
-//    }
-
     @Override
     public String toString() {
-        return this.getModel() + " " + formatter.format(this.getPrice()) + " " + this.getFuelConsumption() + "L";
+        return this.getModel() + " " + this.getPrice() + " " + this.getFuelConsumption() + "L";
     }
 }

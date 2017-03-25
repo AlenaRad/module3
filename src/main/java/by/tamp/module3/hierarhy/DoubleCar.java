@@ -3,9 +3,8 @@ package by.tamp.module3.hierarhy;
 public class DoubleCar extends Car {
     private Wings wings;
 
-    public DoubleCar(String model, int price, int fuelConsumption, double weight) {
+    public DoubleCar(String model, int price, int fuelConsumption, int weight) {
         super(model, price, fuelConsumption, weight);
-        //wings = new Wings("blue", 5);
     }
 
     public Wings getWings() {

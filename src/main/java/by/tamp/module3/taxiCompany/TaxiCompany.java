@@ -6,7 +6,8 @@ import java.util.*;
 
 import static by.tamp.module3.menu.Menu.inputNumberInUI;
 import static by.tamp.module3.menu.Menu.printPoints;
-import static by.tamp.module3.menu.PointsOfMenu.*;
+import static by.tamp.module3.menu.PointsOfMenu.getSecondLevelOfSecondPoint;
+import static by.tamp.module3.menu.PointsOfMenu.getSecondLevelOfThirdPoint;
 
 public class TaxiCompany {
     public List<FamilyCar> familyCars;
